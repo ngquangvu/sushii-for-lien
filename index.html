@@ -132,21 +132,25 @@
             top: 0;
         }
 
-        10% {
-            left: 0%;
-            bottom: 2%;
+        40% {
+            left: 2.5%;
+            top: 0;
+        }
+        75% {
+            left: -2.5%;
+            top: 0;
         }
 
         100% {
-            left: 5%;
-            top: 5%;
+            left: 0%;
+            top: 0;
         }
     }
 
     .rocket-animation {
         position: relative;
         animation-name: rocket;
-        animation-duration: 2s;
+        animation-duration: 3s;
         animation-delay: 0.5s;
         animation-iteration-count: infinite;
         animation-direction: alternate;
@@ -170,16 +174,28 @@
 
 <script type="text/javascript">
     window.onload = function () {
+        var clickSushi = 0;
+
         document.getElementById('mustard').addEventListener('click', function (e) {
             document.body.style.backgroundColor = "#ffeb3b";
+            clickSushi = 0
+            document.getElementById("sushi").src = "https://res.cloudinary.com/do3pbbx5n/image/upload/v1676469344/sushi_rglp7w.png";
         });
 
         document.getElementById('gringer').addEventListener('click', function (e) {
             document.body.style.backgroundColor = "#eeb824";
+            clickSushi = 0
+            document.getElementById("sushi").src = "https://res.cloudinary.com/do3pbbx5n/image/upload/v1676469344/sushi_rglp7w.png";
         });
+
 
         document.getElementById('sushi').addEventListener('click', function (e) {
             document.body.style.backgroundColor = "rgb(249, 240, 227)";
+            clickSushi += 1;
+            if (clickSushi > 8) {
+                // change to pig
+                document.getElementById("sushi").src = "https://res.cloudinary.com/do3pbbx5n/image/upload/v1676474105/pig_batlzy.png";
+            }
         });
     };
 
